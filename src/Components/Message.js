@@ -9,30 +9,41 @@ const Message = ({ message, deleteMessage, id }) => {
 
   return (
     <section>
-      {!change ? (
-        <div>
-          <h3>{message.message}</h3>
+      <div className="post-message">
+        {!change ? (
+          <div>
+            <h5>{message.client}</h5>
+            <h3>{message.message}</h3>
+          </div>
+        ) : (
+          <ChangeForm
+            id={id}
+            client={message.client}
+            ChangeMessage={message.message}
+          />
+        )}
+      </div>
+
+      <div className="post-buttons">
+        {!change ? (
           <button type="button" onClick={() => setChange(true)}>
             <span role="img" aria-label="buttonsymbol">
               ✏️
             </span>
           </button>
-        </div>
-      ) : (
-        <div>
-          <ChangeForm id={id} ChangeMessage={message.message} />
+        ) : (
           <button type="button" onClick={() => setChange(false)}>
             <span role="img" aria-label="buttonsymbol">
               ❌
             </span>
           </button>
-        </div>
-      )}
-      <button type="button" onClick={deleteMessage}>
-        <span className="trash-can" role="img" aria-label="buttonsymbol">
-          🗑
-        </span>
-      </button>
+        )}
+        <button type="button" onClick={deleteMessage}>
+          <span className="trash-can" role="img" aria-label="buttonsymbol">
+            🗑
+          </span>
+        </button>
+      </div>
     </section>
   )
 }

@@ -24,3 +24,21 @@ export const postMessageFailed = (error) => {
     payload: error,
   }
 }
+export const logIn = (alias) => {
+  return {
+    type: 'LOGGED_IN',
+    payload: alias,
+  }
+}
+export const logOut = () => {
+  return {
+    type: 'LOGGED_OUT',
+    payload: '',
+  }
+}
+export const loginFailed = (error) => {
+  return {
+    type: 'LOGIN_FAILED',
+    payload: error,
+  }
+}

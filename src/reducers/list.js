@@ -1,6 +1,5 @@
 /* eslint-disable comma-dangle */
 const list = (state = {}, action) => {
-  console.log(state)
   switch (action.type) {
     case 'FETCHED_SUCCESS':
       return {

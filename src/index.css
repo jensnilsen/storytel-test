@@ -16,18 +16,28 @@ main {
   display: flex;
   border: red 2px solid;
   flex-direction: column;
+  justify-content: center;
 }
 
 button {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  font-size: 25px;
 }
 
 button:hover {
-  filter: invert(80%);
+  font-size: 28px;
+  transition: ease-in-out 100ms;
 }
 
 h3 {
   font-size: 25px;
+}
+.list {
+  display: flex;
+  border: red 2px solid;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

@@ -23,10 +23,12 @@ const MessageForm = () => {
   return (
     <form className="happy-form">
       <textarea
+        placeholder="message"
         rows="3"
         value={message}
         onChange={(event) => setMessage(event.target.value)}
       />
+
       <div className="form-footer">
         <button
           type="submit"

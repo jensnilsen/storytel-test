@@ -13,10 +13,8 @@ const url = 'http://localhost:8080/'
 const MessageList = () => {
   const messageList = useSelector(getMessageList)
   const dispatch = useDispatch()
-  // update later
-  // keep logic for modify and delete here
+
   const fetchList = async () => {
-    // dispatch(fetchListsLoading())
     await fetch(url)
       .then((res) => res.json())
       .then((json) => dispatch(fetchListsSuccess(json)))
@@ -36,7 +34,7 @@ const MessageList = () => {
   }
 
   return (
-    <div>
+    <div className="list">
       {messageList.map((message) => (
         <Message
           key={message._id}

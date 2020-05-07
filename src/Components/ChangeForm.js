@@ -6,7 +6,7 @@ import '../Css/ChangeForm.css'
 const url = 'http://localhost:8080/'
 
 // create new messages
-const ChangeForm = ({ id, ChangeMessage }) => {
+const ChangeForm = ({ id, ChangeMessage, client }) => {
   const [message, setMessage] = useState('')
 
   const handleSubmit = () => {
@@ -19,6 +19,7 @@ const ChangeForm = ({ id, ChangeMessage }) => {
 
   return (
     <form>
+      <h5>{client}</h5>
       <textarea
         defaultValue={ChangeMessage}
         onChange={(event) => setMessage(event.target.value)}
@@ -27,7 +28,7 @@ const ChangeForm = ({ id, ChangeMessage }) => {
         <button
           type="submit"
           onClick={handleSubmit}
-          disabled={message.length < 2 || message.length > 140}
+          disabled={message.length < 1 || message.length > 140}
         >
           <span role="img" aria-label="buttonsymbol">
             ✔️
