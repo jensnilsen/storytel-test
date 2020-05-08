@@ -1,5 +1,11 @@
 /* eslint-disable comma-dangle */
-const list = (state = {}, action) => {
+const initialState = {
+  fetchMessageListStatus: 'NOT_LOADED',
+  deleteMessageStatus: 'NOT_LOADED',
+  messageList: [],
+}
+
+const list = (state = initialState, action) => {
   switch (action.type) {
     case 'FETCHED_SUCCESS':
       return {
@@ -24,12 +30,7 @@ const list = (state = {}, action) => {
         deleteMessageStatus: 'FAILED',
       }
     default:
-      return {
-        ...state,
-        fetchMessageListStatus: 'NOT_LOADED',
-        deleteMessageStatus: 'NOT_LOADED',
-        messageList: [],
-      }
+      return state
   }
 }
 

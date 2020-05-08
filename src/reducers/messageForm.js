@@ -1,5 +1,8 @@
-const messageForm = (state = {}, action) => {
-  console.log(state)
+const initialState = {
+  postMessageListStatus: 'NOT_POSTED',
+}
+
+const messageForm = (state = initialState, action) => {
   switch (action.type) {
     case 'POST_SUCCESS':
       return {
@@ -13,10 +16,7 @@ const messageForm = (state = {}, action) => {
         postMessageListStatus: 'FAILED',
       }
     default:
-      return {
-        ...state,
-        postMessageListStatus: 'NOT_POSTED',
-      }
+      return state
   }
 }
 

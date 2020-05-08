@@ -1,5 +1,11 @@
 /* eslint-disable comma-dangle */
-const login = (state = {}, action) => {
+const initialState = {
+  loginStatus: 'NOT_LOGGED',
+  alias: '',
+  logged: false,
+}
+
+const login = (state = initialState, action) => {
   switch (action.type) {
     case 'LOGGED_IN':
       return {
@@ -16,12 +22,7 @@ const login = (state = {}, action) => {
         logged: false,
       }
     default:
-      return {
-        ...state,
-        loginStatus: 'NOT_LOGGED',
-        alias: '',
-        logged: false,
-      }
+      return state
   }
 }
 

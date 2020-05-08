@@ -8,7 +8,9 @@ const url = 'http://localhost:8080/'
 const MessageForm = () => {
   const [message, setMessage] = useState('')
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
     fetch(url, {
       method: 'POST',
       body: JSON.stringify({ message }),
