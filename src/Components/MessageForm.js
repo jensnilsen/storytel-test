@@ -1,17 +1,15 @@
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable comma-dangle */
 import React, { useState } from 'react'
+import { URL } from '../constants'
 
-const url = 'http://localhost:8080/'
-
-// create new messages
 const MessageForm = () => {
   const [message, setMessage] = useState('')
 
   const handleSubmit = (event) => {
     event.preventDefault()
 
-    fetch(url, {
+    fetch(URL, {
       method: 'POST',
       body: JSON.stringify({ message }),
       headers: { 'Content-Type': 'application/json' },

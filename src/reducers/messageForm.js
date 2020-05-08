@@ -1,5 +1,7 @@
+import { STATUS } from '../constants'
+
 const initialState = {
-  postMessageListStatus: 'NOT_POSTED',
+  postMessageListStatus: STATUS.NOT_LOADED,
 }
 
 const messageForm = (state = initialState, action) => {
@@ -7,13 +9,13 @@ const messageForm = (state = initialState, action) => {
     case 'POST_SUCCESS':
       return {
         ...state,
-        postMessageListStatus: 'SUCCESS',
+        postMessageListStatus: STATUS.SUCCESS,
         messageList: action.payload,
       }
     case 'POST_FAILED':
       return {
         ...state,
-        postMessageListStatus: 'FAILED',
+        postMessageListStatus: STATUS.FAILED,
       }
     default:
       return state

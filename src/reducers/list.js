@@ -1,7 +1,9 @@
 /* eslint-disable comma-dangle */
+import { STATUS } from '../constants'
+
 const initialState = {
-  fetchMessageListStatus: 'NOT_LOADED',
-  deleteMessageStatus: 'NOT_LOADED',
+  fetchMessageListStatus: STATUS.NOT_LOADED,
+  deleteMessageStatus: STATUS.NOT_LOADED,
   messageList: [],
 }
 
@@ -10,24 +12,24 @@ const list = (state = initialState, action) => {
     case 'FETCHED_SUCCESS':
       return {
         ...state,
-        fetchMessageListStatus: 'SUCCESS',
+        fetchMessageListStatus: STATUS.SUCCESS,
         messageList: action.payload,
       }
     case 'FETCHED_FAILED':
       return {
         ...state,
-        fetchMessageListStatus: 'FAILED',
+        fetchMessageListStatus: STATUS.FAILED,
         messageList: [],
       }
     case 'DELETE_MESSAGE_SUCCESS':
       return {
         ...state,
-        deleteMessageStatus: 'SUCCESS',
+        deleteMessageStatus: STATUS.SUCCESS,
       }
     case 'DELETE_MESSAGE_FAILED':
       return {
         ...state,
-        deleteMessageStatus: 'FAILED',
+        deleteMessageStatus: STATUS.FAILED,
       }
     default:
       return state

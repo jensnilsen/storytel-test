@@ -7,15 +7,14 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchListsSuccess, fetchListsFailed } from '../actions'
 import { getMessageList } from '../Selectors'
 import Message from './Message'
-
-const url = 'http://localhost:8080/'
+import { URL } from '../constants'
 
 const MessageList = () => {
   const messageList = useSelector(getMessageList)
   const dispatch = useDispatch()
 
   const fetchList = async () => {
-    await fetch(url)
+    await fetch(URL)
       .then((res) => res.json())
       .then((json) => dispatch(fetchListsSuccess(json)))
       .catch((error) => dispatch(fetchListsFailed(error)))
@@ -25,7 +24,7 @@ const MessageList = () => {
   }, [])
 
   const deleteMessage = (id) => {
-    fetch(`${url}${id}`, {
+    fetch(`${URL}${id}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
     })
