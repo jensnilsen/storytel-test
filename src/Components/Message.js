@@ -39,9 +39,7 @@ const Message = ({ message, deleteMessage, id }) => {
           <div className="post-buttons">
             {alias === message.client ? (
               <button type="button" onClick={() => setChange(true)}>
-                <span role="img" aria-label="buttonsymbol">
-                  change
-                </span>
+                Edit
               </button>
             ) : (
               ''
