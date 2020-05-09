@@ -11,7 +11,8 @@ export const Login = () => {
   const LoggIn = useSelector(getLogin)
   const dispatch = useDispatch()
 
-  const handleLogin = () => {
+  const handleLogin = (event) => {
+    event.preventDefault()
     dispatch(logIn(client))
     setClient('')
   }
