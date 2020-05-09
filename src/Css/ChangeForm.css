@@ -1,6 +1,6 @@
-textarea {
-  background-color: transparent;
-  border: none;
-  width: 80%;
-  font-size: 25px;
+.change-form {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  width: 100%;
 }

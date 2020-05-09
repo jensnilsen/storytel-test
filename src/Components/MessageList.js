@@ -9,7 +9,7 @@ import { getMessageList } from '../Selectors'
 import Message from './Message'
 import { URL } from '../constants'
 
-const MessageList = () => {
+export const MessageList = () => {
   const messageList = useSelector(getMessageList)
   const dispatch = useDispatch()
 

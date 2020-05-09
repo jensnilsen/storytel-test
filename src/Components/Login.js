@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-closing-bracket-location */
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { logIn, logOut } from '../actions'
@@ -5,46 +6,46 @@ import { getLogin } from '../Selectors'
 import '../Css/Login.css'
 
 // create new messages
-const Login = () => {
+export const Login = () => {
   const [client, setClient] = useState('')
-
-  const Logg = useSelector(getLogin)
+  const LoggIn = useSelector(getLogin)
   const dispatch = useDispatch()
 
-  const handleLogin = (event) => {
-    event.preventDefault()
+  const handleLogin = () => {
     dispatch(logIn(client))
   }
-  const handleLogout = (event) => {
-    event.preventDefault()
-    dispatch(logOut(client))
+  const handleLogout = () => {
+    dispatch(logOut())
   }
 
   return (
     <div className="wrapper">
-      {!Logg.logged ? (
+      {!LoggIn.logged ? (
         <div className="login">
-          <form className="login-form">
-            <textarea
+          <form className="login-form" onSubmit={handleLogin}>
+            <input
+              className="login-input"
               type="text"
-              rows="1"
               placeholder="alias"
               value={client}
               onChange={(event) => setClient(event.target.value)}
             />
+            <p>{client.length}/8</p>
+
             <div className="form-footer">
-              <button type="submit" onClick={handleLogin}>
+              <button
+                type="submit"
+                disabled={client.length < 1 || client.length > 8}
+              >
                 Log In
               </button>
             </div>
           </form>
         </div>
       ) : (
-        <div>
-          <button type="submit" onClick={handleLogout}>
-            Log Out
-          </button>
-        </div>
+        <button className="logout" type="button" onClick={handleLogout}>
+          Log Out
+        </button>
       )}
     </div>
   )

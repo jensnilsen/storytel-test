@@ -14,7 +14,7 @@ const login = (state = initialState, action) => {
         alias: action.payload,
         logged: true,
       }
-    case 'LOGED_OUT':
+    case 'LOGGED_OUT':
       return {
         ...state,
         loginStatus: 'LOGGED_OUT',

@@ -6,9 +6,12 @@ import Login from './Components/Login'
 export const App = () => {
   return (
     <main>
-      {/* <Login /> */}
-      <MessageForm />
-      <MessageList />
+      <section className="main-wrapper">
+        {/* <Header /> */}
+        <Login />
+        <MessageForm />
+        <MessageList />
+      </section>
     </main>
   )
 }

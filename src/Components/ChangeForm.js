@@ -1,26 +1,48 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable comma-dangle */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { URL } from '../constants'
+import { fetchListsSuccess, fetchListsFailed } from '../actions'
 import '../Css/ChangeForm.css'
 
 const url = 'http://localhost:8080/'
 
 // create new messages
-const ChangeForm = ({ id, ChangeMessage, client }) => {
+const ChangeForm = ({ id, ChangeMessage, client, hide }) => {
   const [message, setMessage] = useState('')
+  const dispatch = useDispatch()
 
-  const handleSubmit = () => {
+  const fetchList = async () => {
+    await fetch(URL)
+      .then((res) => res.json())
+      .then((json) => dispatch(fetchListsSuccess(json)))
+      .catch((error) => dispatch(fetchListsFailed(error)))
+  }
+
+  useEffect(() => {
+    fetchList()
+  }, [])
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    hide()
     fetch(url + id, {
       method: 'PUT',
       body: JSON.stringify({ message }),
       headers: { 'Content-Type': 'application/json' },
-    }).catch((err) => console.log('error:', err))
+    })
+      .then(fetchList)
+      .catch((err) => console.log('error:', err))
   }
 
   return (
-    <form>
-      <h5>{client}</h5>
-      <textarea
+    <form className="change-form">
+      <p className="alias">{client} :</p>
+      <input
+        className="change-input"
+        type="text"
         defaultValue={ChangeMessage}
         onChange={(event) => setMessage(event.target.value)}
       />
@@ -30,9 +52,7 @@ const ChangeForm = ({ id, ChangeMessage, client }) => {
           onClick={handleSubmit}
           disabled={message.length < 1 || message.length > 140}
         >
-          <span role="img" aria-label="buttonsymbol">
-            ✔️
-          </span>
+          OK
         </button>
       </div>
     </form>

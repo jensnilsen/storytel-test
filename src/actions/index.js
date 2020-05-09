@@ -33,7 +33,7 @@ export const logIn = (alias) => {
 export const logOut = () => {
   return {
     type: 'LOGGED_OUT',
-    payload: '',
+    payload: [],
   }
 }
 export const loginFailed = (error) => {

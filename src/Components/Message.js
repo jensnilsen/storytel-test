@@ -1,48 +1,66 @@
+/* eslint-disable react/jsx-closing-bracket-location */
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import ChangeForm from './ChangeForm'
 import '../Css/Message.css'
+import { getLoginAlias } from '../Selectors'
 
 // should present message
 // be able to delete, view, modify
 const Message = ({ message, deleteMessage, id }) => {
   const [change, setChange] = useState(false)
+  const alias = useSelector(getLoginAlias)
+
+  console.log(alias)
+
+  const hide = () => {
+    setChange(false)
+  }
 
   return (
-    <section>
+    <section className="message-card">
       <div className="post-message">
         {!change ? (
-          <div>
-            <h5>{message.client}</h5>
-            <h3>{message.message}</h3>
+          <div className="message-wrapper">
+            <p className="alias">{message.client}</p>
+            <p className="message">{message.message}</p>
           </div>
         ) : (
           <ChangeForm
             id={id}
+            hide={hide}
             client={message.client}
             ChangeMessage={message.message}
           />
         )}
       </div>
-
       <div className="post-buttons">
         {!change ? (
-          <button type="button" onClick={() => setChange(true)}>
-            <span role="img" aria-label="buttonsymbol">
-              ✏️
-            </span>
-          </button>
+          <div className="post-buttons">
+            {alias === message.client ? (
+              <button type="button" onClick={() => setChange(true)}>
+                <span role="img" aria-label="buttonsymbol">
+                  change
+                </span>
+              </button>
+            ) : (
+              ''
+            )}
+          </div>
         ) : (
-          <button type="button" onClick={() => setChange(false)}>
-            <span role="img" aria-label="buttonsymbol">
-              ❌
-            </span>
-          </button>
+          <div className="post-buttons">
+            <button type="button" onClick={() => setChange(false)}>
+              <span role="img" aria-label="buttonsymbol">
+                Back
+              </span>
+            </button>
+            <button type="button" onClick={deleteMessage}>
+              <span className="trash-can" role="img" aria-label="buttonsymbol">
+                Delete
+              </span>
+            </button>
+          </div>
         )}
-        <button type="button" onClick={deleteMessage}>
-          <span className="trash-can" role="img" aria-label="buttonsymbol">
-            🗑
-          </span>
-        </button>
       </div>
     </section>
   )
