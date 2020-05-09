@@ -13,6 +13,7 @@ export const Login = () => {
 
   const handleLogin = () => {
     dispatch(logIn(client))
+    setClient('')
   }
   const handleLogout = () => {
     dispatch(logOut())

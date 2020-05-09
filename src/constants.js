@@ -1,4 +1,4 @@
-export const URL = 'http://localhost:8080/'
+export const URL = 'https://storytel-test.herokuapp.com/'
 
 export const STATUS = {
   SUCCESS: 'SUCCESS',

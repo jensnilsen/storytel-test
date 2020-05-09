@@ -7,8 +7,6 @@ import { URL } from '../constants'
 import { fetchListsSuccess, fetchListsFailed } from '../actions'
 import '../Css/ChangeForm.css'
 
-const url = 'http://localhost:8080/'
-
 // create new messages
 const ChangeForm = ({ id, ChangeMessage, client, hide }) => {
   const [message, setMessage] = useState('')
@@ -28,7 +26,7 @@ const ChangeForm = ({ id, ChangeMessage, client, hide }) => {
   const handleSubmit = (event) => {
     event.preventDefault()
     hide()
-    fetch(url + id, {
+    fetch(URL + id, {
       method: 'PUT',
       body: JSON.stringify({ message }),
       headers: { 'Content-Type': 'application/json' },
