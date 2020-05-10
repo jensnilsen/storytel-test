@@ -2,14 +2,16 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable no-underscore-dangle */
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchListsSuccess, fetchListsFailed } from '../actions'
 import { getMessageList } from '../Selectors'
 import Message from './Message'
 import { URL } from '../constants'
+import LoadingScreen from './LodaingScreen'
 
 export const MessageList = () => {
+  const [loading, setLodading] = useState(true)
   const messageList = useSelector(getMessageList)
   const dispatch = useDispatch()
 
@@ -17,6 +19,7 @@ export const MessageList = () => {
     await fetch(URL)
       .then((res) => res.json())
       .then((json) => dispatch(fetchListsSuccess(json)))
+      .then(setLodading(false))
       .catch((error) => dispatch(fetchListsFailed(error)))
   }
   useEffect(() => {
@@ -34,15 +37,21 @@ export const MessageList = () => {
 
   return (
     <div className="list">
-      {messageList.map((message) => (
-        <Message
-          key={message._id}
-          message={message}
-          fetchList={fetchList}
-          deleteMessage={() => deleteMessage(message._id)}
-          id={message._id}
-        />
-      ))}
+      {loading ? (
+        <LoadingScreen />
+      ) : (
+        <div>
+          {messageList.map((message) => (
+            <Message
+              key={message._id}
+              message={message}
+              fetchList={fetchList}
+              deleteMessage={() => deleteMessage(message._id)}
+              id={message._id}
+            />
+          ))}
+        </div>
+      )}
     </div>
   )
 }
