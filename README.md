@@ -1,19 +1,21 @@
-# Technigo React Starter App
+Message board - Frontend Test for Storytel
 
-This app has been generated using `create-react-app`, then cleaned up a little so we have a project with just the elements we need to get started.
+site deployed: https://storytel-test.netlify.app/
+backend repo: https://github.com/jensnilsen/storytel-test-backend/
 
-Add components in the `src` folder and use them in `src/app.js` to get started.
+I built a small backend in express/node and deployed in on heroku.
 
-## Usage
+## Frontend Usage
 
-1. On GitHub, click the 'use this template' button to create a new repo on your account
-1. Clone the new repo to your computer
+1. Clone the repo to your computer
 1. Install required dependencies with npm: `npm install`
 1. Start the project: `npm start`
 
-Alternatively, if you don't want a new git repo on your account;
+## Local Backend Usage
 
-1. Download & extract the [latest release](https://github.com/Technigo/react-starter/releases/latest) from GitHub
-1. Open the directory in the terminal: `cd /path/to/react-starter`
+If you wish to use the backend on local host:
+
+1. Clone the backend repo to your computer
 1. Install required dependencies with npm: `npm install`
-1. Start the project: `npm start`
+1. Start the project: `npm run dev`
+1. change the URL (in constants.js) to http://localhost:8080/
