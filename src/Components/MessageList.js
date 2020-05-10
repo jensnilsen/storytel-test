@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchListsSuccess, fetchListsFailed, deleteSuccess } from '../actions'
@@ -20,6 +22,7 @@ export const MessageList = () => {
   }
   useEffect(() => {
     fetchList()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const deleteMessage = (id) => {
@@ -29,7 +32,7 @@ export const MessageList = () => {
     })
       .then(dispatch(deleteSuccess(id)))
       .then(fetchList)
-      .catch((err) => ('error:', err))
+      .catch((err) => err)
   }
 
   return (

@@ -10,7 +10,7 @@ export const fetchListsFailed = (error) => {
     payload: error,
   }
 }
-export const postMessageSucces = (postedMessage) => {
+export const postMessageSuccess = (postedMessage) => {
   return {
     type: 'POST_SUCCESS',
     payload: postedMessage,

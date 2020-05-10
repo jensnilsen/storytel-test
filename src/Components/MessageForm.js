@@ -1,13 +1,11 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react/jsx-closing-bracket-location */
-/* eslint-disable comma-dangle */
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { URL } from '../constants'
 import {
   fetchListsSuccess,
   fetchListsFailed,
-  postMessageSucces,
+  postMessageSuccess,
+  postMessageFailed,
 } from '../actions'
 import { getLoginAlias } from '../Selectors'
 import '../Css/MessageForm.css'
@@ -27,12 +25,11 @@ const MessageForm = () => {
 
   useEffect(() => {
     fetchList()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    dispatch(postMessageSucces(message))
-
     fetch(URL, {
       method: 'POST',
       body: JSON.stringify({ message, client }),
@@ -40,9 +37,10 @@ const MessageForm = () => {
     })
       .then((res) => {
         res.json(message)
+        dispatch(postMessageSuccess(message))
         fetchList().then(setMessage(''))
       })
-      .catch((err) => ('error:', err))
+      .catch((error) => dispatch(postMessageFailed(error)))
   }
 
   return (

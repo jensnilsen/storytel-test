@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle */
 import { combineReducers } from 'redux'
 import list from './list'
 import messageForm from './messageForm'

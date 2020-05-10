@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-closing-bracket-location */
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { logIn, logOut } from '../actions'

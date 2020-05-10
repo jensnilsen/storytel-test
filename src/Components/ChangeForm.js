@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { URL } from '../constants'
-import { fetchListsSuccess, fetchListsFailed } from '../actions'
+import {
+  fetchListsSuccess,
+  fetchListsFailed,
+  postMessageSuccess,
+  postMessageFailed,
+} from '../actions'
 import '../Css/ChangeForm.css'
 
 const ChangeForm = ({ id, ChangeMessage, client, hide }) => {
@@ -17,6 +22,7 @@ const ChangeForm = ({ id, ChangeMessage, client, hide }) => {
 
   useEffect(() => {
     fetchList()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleSubmit = (event) => {
@@ -28,7 +34,8 @@ const ChangeForm = ({ id, ChangeMessage, client, hide }) => {
       headers: { 'Content-Type': 'application/json' },
     })
       .then(fetchList)
-      .catch((err) => ('error:', err))
+      .then(() => dispatch(postMessageSuccess()))
+      .catch((error) => dispatch(postMessageFailed(error)))
   }
 
   return (
