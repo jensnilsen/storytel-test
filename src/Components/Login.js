@@ -21,10 +21,11 @@ export const Login = () => {
   }
 
   return (
-    <div className="wrapper">
+    <div className="login-wrapper">
       {!LoggIn.logged ? (
         <div className="login">
           <form className="login-form" onSubmit={handleLogin}>
+            <p className="login-length">{client.length}/8</p>
             <input
               className="login-input"
               type="text"
@@ -32,8 +33,6 @@ export const Login = () => {
               value={client}
               onChange={(event) => setClient(event.target.value)}
             />
-            <p>{client.length}/8</p>
-
             <div className="form-footer">
               <button
                 type="submit"
