@@ -1,6 +1,12 @@
 .login {
-  background: rgba(0, 0, 0, 0.836);
-  padding: 10px;
+  background: rgb(0, 0, 255);
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 255, 0.7035189075630253) 0%,
+    rgba(18, 12, 18, 0.5018382352941176) 16%,
+    rgba(0, 0, 0, 0.8407738095238095) 58%,
+    rgba(0, 0, 0, 0.7371323529411764) 100%
+  );
   position: fixed;
   top: 0;
   left: 0;
@@ -15,7 +21,8 @@
 
 .login-form {
   background: blue;
-  padding: 30px;
+  height: 280px;
+  width: 280px;
   position: fixed;
   display: flex;
   flex-direction: column;

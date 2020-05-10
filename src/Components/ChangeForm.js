@@ -37,7 +37,7 @@ const ChangeForm = ({ id, ChangeMessage, client, hide }) => {
 
   return (
     <form className="change-form">
-      <p className="alias">{client} :</p>
+      <p className="alias">{client} </p>
       <input
         className="change-input"
         type="text"
@@ -46,6 +46,7 @@ const ChangeForm = ({ id, ChangeMessage, client, hide }) => {
       />
       <div>
         <button
+          className="edit-button"
           type="submit"
           onClick={handleSubmit}
           disabled={message.length < 1 || message.length > 140}

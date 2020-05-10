@@ -11,8 +11,6 @@ const Message = ({ message, deleteMessage, id }) => {
   const [change, setChange] = useState(false)
   const alias = useSelector(getLoginAlias)
 
-  console.log(alias)
-
   const hide = () => {
     setChange(false)
   }
@@ -47,12 +45,20 @@ const Message = ({ message, deleteMessage, id }) => {
           </div>
         ) : (
           <div className="post-buttons">
-            <button type="button" onClick={() => setChange(false)}>
+            <button
+              className="edit-button"
+              type="button"
+              onClick={() => setChange(false)}
+            >
               <span role="img" aria-label="buttonsymbol">
                 Back
               </span>
             </button>
-            <button type="button" onClick={deleteMessage}>
+            <button
+              className="edit-button"
+              type="button"
+              onClick={deleteMessage}
+            >
               <span className="trash-can" role="img" aria-label="buttonsymbol">
                 Delete
               </span>

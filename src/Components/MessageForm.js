@@ -48,14 +48,18 @@ const MessageForm = () => {
         value={message}
         onChange={(event) => setMessage(event.target.value)}
       />
-      <p>{message.length}/140</p>
+      <p
+        disabled={message.length < 1 || message.length > 50}
+        className="message-length"
+      >
+        {message.length}/50
+      </p>
       <button
         className="send-button"
         type="submit"
-        // onClick={handleSubmit}
-        disabled={message.length < 1 || message.length > 140}
+        disabled={message.length < 1 || message.length > 50}
       >
-        Send Post
+        Post
       </button>
     </form>
   )

@@ -4,3 +4,17 @@
   height: 30px;
   width: 100%;
 }
+
+.change-input[type='text'] {
+  animation: changeInputText 1.01s infinite;
+  color: rgba(0, 255, 34, 0.363);
+}
+
+@keyframes changeInputText {
+  from {
+    color: rgba(0, 255, 34, 0.63);
+  }
+  to {
+    color: rgba(0, 255, 34, 0.932);
+  }
+}

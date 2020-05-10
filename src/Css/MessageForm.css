@@ -6,5 +6,25 @@
   width: 100%;
 }
 ::placeholder {
-  color: rgb(61, 114, 0);
+  color: rgba(136, 255, 0, 0.568);
+}
+.message-length {
+  display: none;
+}
+.message-length[disabled] {
+  color: #dfdf373a;
+}
+.send-button {
+  font-size: 25px;
+  margin: 5px;
+}
+
+@media (min-width: 669px) {
+  .message-length {
+    display: inline;
+  }
+  .send-button {
+    font-size: 30px;
+    margin: 0;
+  }
 }

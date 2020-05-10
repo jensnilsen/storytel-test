@@ -24,13 +24,9 @@ main {
   width: 99%;
 }
 
-input {
-  font-family: 'VT323', monospace;
-  color: rgb(61, 114, 0);
-}
-
 input[type='text'] {
-  color: rgb(61, 114, 0);
+  color: rgba(136, 255, 0, 0.568);
+  font-size: 20px;
 }
 
 button {
@@ -38,17 +34,9 @@ button {
   border: none;
   cursor: pointer;
   font-family: 'VT323', monospace;
-  font-size: 25px;
+  font-size: 18px;
   color: rgb(223, 223, 55);
-  margin-left: 10px;
-  margin-right: 10px;
-  border: 3px dotted transparent;
-}
-
-button:hover {
-  filter: invert(100%);
-  border: 3px dotted blue;
-  transition: ease-in-out 100ms;
+  border: 1px dotted transparent;
 }
 
 button:disabled {
@@ -56,15 +44,39 @@ button:disabled {
 }
 
 p {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 input {
+  font-family: 'VT323', monospace;
   background-color: transparent;
-  height: 40px;
+  height: 30px;
   border: none;
   width: 80%;
-  font-size: 25px;
+  font-size: 20px;
   margin-left: 10px;
   color: rgb(223, 223, 55);
+}
+
+@media (min-width: 669px) {
+  p {
+    font-size: 30px;
+  }
+  input {
+    height: 40px;
+  }
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: 'VT323', monospace;
+    font-size: 30px;
+    color: rgb(223, 223, 55);
+  }
+  button:hover {
+    filter: invert(100%);
+  }
+  input[type='text'] {
+    font-size: 30px;
+  }
 }

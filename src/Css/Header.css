@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.p1 {
+  font-size: 40px;
+  margin: 0;
+}
+
+.p7 {
+  font-size: 40px;
+  margin: 0;
+  animation: mymove 1.01s infinite;
+}
+
+@keyframes mymove {
+  0% {
+    color: transparent;
+  }
+  100% {
+    color: yellow;
+  }
+}
+
+@media (min-width: 669px) {
+  .p1,
+  .p7 {
+    font-size: 100px;
+  }
+}

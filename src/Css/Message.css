@@ -1,20 +1,50 @@
 .message-card {
   border-bottom: 1px solid rgba(60, 255, 0, 0.267);
   width: 100%;
-  height: 70px;
+  height: 50px;
   display: flex;
   justify-content: space-between;
+  background-color: transparent;
+  animation-name: newMessage;
+  animation-duration: 1s;
 }
+
+@keyframes newMessage {
+  from {
+    background-color: rgba(0, 255, 34, 0.363);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+
 .post-buttons {
   display: flex;
+  right: 0;
   justify-content: flex-end;
+}
+
+.edit-button {
+  display: flex;
+  justify-content: flex-end;
+  animation-name: editButtons;
+  animation-duration: 0.5s;
+}
+
+@keyframes editButtons {
+  from {
+    background-color: rgba(0, 255, 34, 0.363);
+  }
+  to {
+    background-color: transparent;
+  }
 }
 .message-wrapper {
   display: flex;
   flex-direction: row;
 }
 .alias {
-  width: 110px;
+  width: 80px;
   margin-left: 10px;
 }
 .post-buttons {
@@ -26,4 +56,17 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+p.message {
+  margin-left: 5px;
+}
+
+@media (min-width: 669px) {
+  .alias {
+    width: 110px;
+  }
+
+  .message-card {
+    height: 70px;
+  }
 }
