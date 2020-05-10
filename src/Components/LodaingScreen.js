@@ -1,16 +1,12 @@
 import React from 'react'
 import '../Css/Header.css'
 
-const message = 'LOADING{...'
-const end = '}'
-
 export const Header = () => {
   return (
-    <div className="header">
-      <p className="p1">{message}</p>
+    <section className="header">
+      <p className="p1">LOADING...</p>
       <p className="p7">|</p>
-      <p className="p1">{end}</p>
-    </div>
+    </section>
   )
 }
 

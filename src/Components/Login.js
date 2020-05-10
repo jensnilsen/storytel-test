@@ -21,7 +21,7 @@ export const Login = () => {
   }
 
   return (
-    <div className="login-wrapper">
+    <section className="login-wrapper">
       {!LoggIn.logged ? (
         <div className="login">
           <form className="login-form" onSubmit={handleLogin}>
@@ -33,14 +33,12 @@ export const Login = () => {
               value={client}
               onChange={(event) => setClient(event.target.value)}
             />
-            <div className="form-footer">
-              <button
-                type="submit"
-                disabled={client.length < 1 || client.length > 8}
-              >
-                Log In
-              </button>
-            </div>
+            <button
+              type="submit"
+              disabled={client.length < 1 || client.length > 8}
+            >
+              Log In
+            </button>
           </form>
         </div>
       ) : (
@@ -48,7 +46,7 @@ export const Login = () => {
           Log Out
         </button>
       )}
-    </div>
+    </section>
   )
 }
 

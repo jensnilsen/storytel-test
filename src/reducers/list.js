@@ -21,12 +21,12 @@ const list = (state = initialState, action) => {
         fetchMessageListStatus: STATUS.FAILED,
         messageList: [],
       }
-    case 'DELETE_MESSAGE_SUCCESS':
+    case 'DELETE_SUCCESS':
       return {
         ...state,
         deleteMessageStatus: STATUS.SUCCESS,
       }
-    case 'DELETE_MESSAGE_FAILED':
+    case 'DELETE_FAILED':
       return {
         ...state,
         deleteMessageStatus: STATUS.FAILED,

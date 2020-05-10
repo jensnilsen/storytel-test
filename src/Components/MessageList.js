@@ -1,10 +1,6 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable comma-dangle */
-/* eslint-disable react/jsx-closing-bracket-location */
-/* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchListsSuccess, fetchListsFailed } from '../actions'
+import { fetchListsSuccess, fetchListsFailed, deleteSuccess } from '../actions'
 import { getMessageList } from '../Selectors'
 import Message from './Message'
 import { URL } from '../constants'
@@ -31,8 +27,9 @@ export const MessageList = () => {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
     })
+      .then(dispatch(deleteSuccess(id)))
       .then(fetchList)
-      .catch((err) => console.log('error:', err))
+      .catch((err) => ('error:', err))
   }
 
   return (

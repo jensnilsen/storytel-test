@@ -9,11 +9,6 @@ body {
   color: rgb(223, 223, 55);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 main {
   display: flex;
   flex-direction: column;
@@ -21,7 +16,7 @@ main {
   align-items: center;
 }
 .main-wrapper {
-  width: 99%;
+  width: 97%;
 }
 
 input[type='text'] {

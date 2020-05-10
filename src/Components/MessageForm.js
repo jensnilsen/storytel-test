@@ -4,7 +4,11 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { URL } from '../constants'
-import { fetchListsSuccess, fetchListsFailed } from '../actions'
+import {
+  fetchListsSuccess,
+  fetchListsFailed,
+  postMessageSucces,
+} from '../actions'
 import { getLoginAlias } from '../Selectors'
 import '../Css/MessageForm.css'
 
@@ -27,6 +31,7 @@ const MessageForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    dispatch(postMessageSucces(message))
 
     fetch(URL, {
       method: 'POST',
@@ -37,7 +42,7 @@ const MessageForm = () => {
         res.json(message)
         fetchList().then(setMessage(''))
       })
-      .catch((err) => console.log('error:', err))
+      .catch((err) => ('error:', err))
   }
 
   return (

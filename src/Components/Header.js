@@ -6,11 +6,11 @@ const end = '}'
 
 export const Header = () => {
   return (
-    <div className="header">
+    <header className="header">
       <p className="p1">{message}</p>
       <p className="p7">|</p>
       <p className="p1">{end}</p>
-    </div>
+    </header>
   )
 }
 

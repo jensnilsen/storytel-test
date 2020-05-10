@@ -46,6 +46,7 @@
 .alias {
   width: 80px;
   margin-left: 10px;
+  color: rgba(255, 255, 255, 0.822);
 }
 .post-buttons {
   display: flex;

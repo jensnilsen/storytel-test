@@ -1,5 +1,3 @@
-/* eslint-disable comma-dangle */
-
 export const fetchListsSuccess = (messageList) => {
   return {
     type: 'FETCHED_SUCCESS',
@@ -40,5 +38,11 @@ export const loginFailed = (error) => {
   return {
     type: 'LOGIN_FAILED',
     payload: error,
+  }
+}
+export const deleteSuccess = (deleted) => {
+  return {
+    type: 'DELETE_SUCCESS',
+    payload: deleted,
   }
 }

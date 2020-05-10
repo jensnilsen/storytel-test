@@ -1,12 +1,9 @@
-/* eslint-disable react/jsx-closing-bracket-location */
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import ChangeForm from './ChangeForm'
 import '../Css/Message.css'
 import { getLoginAlias } from '../Selectors'
 
-// should present message
-// be able to delete, view, modify
 const Message = ({ message, deleteMessage, id }) => {
   const [change, setChange] = useState(false)
   const alias = useSelector(getLoginAlias)
@@ -20,7 +17,7 @@ const Message = ({ message, deleteMessage, id }) => {
       <div className="post-message">
         {!change ? (
           <div className="message-wrapper">
-            <p className="alias">{message.client}</p>
+            <p className="alias">{message.client}:</p>
             <p className="message">{message.message}</p>
           </div>
         ) : (
