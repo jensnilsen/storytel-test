@@ -18,4 +18,4 @@ If you wish to use the backend on local host:
 1. Clone the backend repo to your computer
 1. Install required dependencies with npm: `npm install`
 1. Start the project: `npm run dev`
-1. change the URL (in constants.js) to http://localhost:8080/
+1. change the URL (in storytell-test/src/constants.js) to http://localhost:8080/
