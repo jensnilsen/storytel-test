@@ -48,6 +48,11 @@
   margin-left: 10px;
   color: rgba(255, 255, 255, 0.822);
 }
+.my-alias {
+  width: 80px;
+  margin-left: 10px;
+  color: rgba(77, 160, 255, 0.822);
+}
 .post-buttons {
   display: flex;
   align-items: center;
@@ -64,6 +69,9 @@ p.message {
 
 @media (min-width: 669px) {
   .alias {
+    width: 110px;
+  }
+  .my-alias {
     width: 110px;
   }
 
