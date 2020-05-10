@@ -2,7 +2,12 @@
 
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchListsSuccess, fetchListsFailed, deleteSuccess } from '../actions'
+import {
+  fetchListsSuccess,
+  fetchListsFailed,
+  deleteSuccess,
+  deleteFailed,
+} from '../actions'
 import { getMessageList } from '../Selectors'
 import Message from './Message'
 import { URL } from '../constants'
@@ -32,7 +37,7 @@ export const MessageList = () => {
     })
       .then(dispatch(deleteSuccess(id)))
       .then(fetchList)
-      .catch((err) => err)
+      .catch((error) => dispatch(deleteFailed(error)))
   }
 
   return (

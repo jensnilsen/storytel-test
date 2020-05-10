@@ -1,17 +1,17 @@
 import React from 'react'
-import MessageList from './Components/MessageList'
-import MessageForm from './Components/MessageForm'
-import Login from './Components/Login'
-import Header from './Components/Header'
+import List from './Components/MessageList'
+import Form from './Components/MessageForm'
+import LogIn from './Components/Login'
+import Head from './Components/Header'
 
 export const App = () => {
   return (
     <main>
       <section className="main-wrapper">
-        <Header />
-        <Login />
-        <MessageForm />
-        <MessageList />
+        <Head />
+        <LogIn />
+        <Form />
+        <List />
       </section>
     </main>
   )

@@ -10,7 +10,7 @@ import {
 import { getLoginAlias } from '../Selectors'
 import '../Css/MessageForm.css'
 
-const MessageForm = () => {
+export const MessageForm = () => {
   const [message, setMessage] = useState('')
   const client = useSelector(getLoginAlias)
 

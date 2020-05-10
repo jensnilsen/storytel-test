@@ -46,3 +46,9 @@ export const deleteSuccess = (deleted) => {
     payload: deleted,
   }
 }
+export const deleteFailed = (error) => {
+  return {
+    type: 'DELETE_FAILED',
+    payload: error,
+  }
+}

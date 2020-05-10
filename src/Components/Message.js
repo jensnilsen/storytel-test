@@ -17,7 +17,7 @@ const Message = ({ message, deleteMessage, id }) => {
       <div className="post-message">
         {!change ? (
           <div className="message-wrapper">
-            <p className="alias">{message.client}:</p>
+            <p className="alias">{message.client}</p>
             <p className="message">{message.message}</p>
           </div>
         ) : (
